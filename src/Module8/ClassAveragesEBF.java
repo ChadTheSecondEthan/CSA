@@ -31,9 +31,10 @@ public class ClassAveragesEBF {
 		File file = new File("src\\Module8\\M8L2A2file.txt");
 		Scanner input = new Scanner(file);
 		
-		// get student averages, and print them
+		// get student averages, print them, and graph them
 		double[][] allAverages = getStudentAverages(input);
 		printStudentAverages(allAverages);
+		graphStudentAverages(allAverages);
 		
 		// close scanner so no memory leaks
 		input.close();
@@ -162,19 +163,95 @@ public class ClassAveragesEBF {
 			overallStudentTwo += averages[1][i];
 			
 			// print each students' averages for the currentClass
-			System.out.printf("%s \t 1 \t\t %.2f\n  \t\t 2 \t\t %.2f\n",
+			System.out.printf("%s \t 1 \t\t %.2f\n        \t 2 \t\t %.2f\n",
 					currentClass, averages[0][i], averages[1][i]);
 		}
 		
 		// Finally, print each students' overall averages
 		System.out.printf("\nAverage for student 1: %.3f\n"
-				+ "Average for student 2: %.3f\n", 
+				+ "Average for student 2: %.3f\n\n", 
 				overallStudentOne / 4, overallStudentTwo / 4);
 		
+	}
+	
+	/**
+	 * @param averages for the students
+	 * Prints the averages as a graph, with student 1 as *, and student 2 as #
+	 */
+	public static void graphStudentAverages(double[][] averages) {
+		
+		// print the graph to start
+		System.out.println("\t0   10   20   30   40   50   60   70   80   90  100");
+		System.out.println("\t|----|----|----|----|----|----|----|----|----|----|");
+		
+		// print averages for each of the 4 classes
+		for (int i = 0; i < 4; i++) {
+			
+			// get the current class as a string
+			String curClass;
+			switch(i) {
+			case CIS_110:
+				curClass = "CIS";
+				break;
+			case ENG_111:
+				curClass = "ENG";
+				break;
+			case MTH_141:
+				curClass = "MTH";
+				break;
+			default:
+				curClass = "CHM";
+			}
+			
+			// print the class, along with each students' averages
+			int numStars = (int) averages[0][i] / 2;
+			int numPounds = (int) averages[1][i] / 2;
+			
+			System.out.print(curClass + "\t");
+			for (int j = 0; j < numStars; j++) 
+				System.out.print('*');
+			
+			// Go to the next line and add some spaces
+			System.out.print("\n   \t");
+			
+			for (int j = 0; j < numPounds; j++) 
+				System.out.print('#');
+			
+			// print another two lines for the next class
+			System.out.println("\n");
+		}
 	}
 }
 
 /*
  * Sample Output:
- * 
+ 
+Course ID	Student #	Course Average
+CIS 110 	 1 		 79.10
+        	 2 		 65.00
+ENG 111 	 1 		 73.40
+        	 2 		 85.00
+MTH 141 	 1 		 89.80
+        	 2 		 80.60
+CHM 121 	 1 		 72.20
+        	 2 		 91.40
+
+Average for student 1: 78.625
+Average for student 2: 80.500
+
+	0   10   20   30   40   50   60   70   80   90  100
+	|----|----|----|----|----|----|----|----|----|----|
+CIS	***************************************
+   	################################
+
+ENG	************************************
+   	##########################################
+
+MTH	********************************************
+   	########################################
+
+CHM	************************************
+   	#############################################
+
+
  */

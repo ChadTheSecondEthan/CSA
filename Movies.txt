@@ -1,0 +1,33 @@
+Title
+Genre
+rating
+The Princess Bride
+Romance, Adventure
+9
+Clue
+Comedy
+8
+Titanic
+Drama
+8.5
+007: Casino Royale
+Action
+8
+Top Gun
+Action, Drama
+7.5
+Avengers: Endgame
+Action
+8.5
+Monty Python and the Holy Grail
+Comedy
+7
+Napoleon Dynamite
+Comedy
+7.5
+Hobbs & Shaw
+Action
+8.5
+The Goonies
+Adventure
+8
