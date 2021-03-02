@@ -4,17 +4,17 @@ public class NewtonsFormula {
 
 	public static void main(String[] args) {
 		
-		double x = 1.5;
+		double c = .5;
 		
 		for (int i = 1; i <= 10; i++) {
-			x -= f(x) / fPrime(x);
-			System.out.println("X sub " + i + ": " + x);
+			c -= f(c) / fPrime(c);
+			System.out.println("C sub " + i + ": " + c);
 		}
 
 	}
 	
-	static double f(double x) { return (x * x * x) - (4 * x) + 2; }
+	static double f(double x) { return 2 * Math.cos(x) - Math.pow(Math.E, x); }
 	
-	static double fPrime(double x) { return (3 * x * x) - 4; }
+	static double fPrime(double x) { return -2 * Math.sin(x) - Math.pow(Math.E, x); }
 
 }
